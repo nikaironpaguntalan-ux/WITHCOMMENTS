@@ -1,6 +1,6 @@
 import java.util.ArrayList;  
 
-// Class nga ma store kag manage sang selected lab test results
+// Class to manage selected lab tests and their results, including methods to add test results and display them in a formatted manner.
 public class SelectedLabTests {
 
     // List to hold formatted test results as strings
