@@ -7,10 +7,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class PagunTudenClinicAppGUI extends JFrame {
 
-    // ma assign sang unique patient ID starting from 1001, incrementing for each new patient
+    // It will assign a unique patient ID to each new patient entry, starting from 1001 and incrementing for each new patient added to the system. This ensures that every patient has a distinct identifier for record-keeping and reference purposes.
     private static int nextID = 1001;
 
-    // para sa demographics input fields, JTextFields The JTextField in Java Swing is a graphical user interface (GUI) component that allows a user to enter or edit a single line of text. It is a fundamental component for capturing user input like names, email addresses, or search queries in a GUI application. 
+    //  demographics input fields, JTextFields The JTextField in Java Swing is a graphical user interface (GUI) component that allows a user to enter or edit a single line of text. It is a fundamental component for capturing user input like names, email addresses, or search queries in a GUI application. 
     private JTextField fnameField, mnameField, lnameField;
     private JTextField ageField, provinceField, cityField;
     private JTextField lastMealField, physicianField;
@@ -104,19 +104,19 @@ public class PagunTudenClinicAppGUI extends JFrame {
 
         // Add labels and fields
         requestPanel.add(new JLabel("Last Meal Time:"));
-        requestPanel.add(lastMealField);//same lng sa iban ah
+        requestPanel.add(lastMealField);//this adds the last meal time label and text field to the request details panel, allowing users to input the time of the patient's last meal.
 
         requestPanel.add(new JLabel("AM/PM:"));
-        requestPanel.add(mealAmPmBox);//same lng sa iban ah
+        requestPanel.add(mealAmPmBox);//this adds the AM/PM label and combo box to the request details panel, allowing users to select whether the last meal time entered is in the morning (AM) or afternoon/evening (PM).
 
         requestPanel.add(new JLabel("Requesting Physician:"));
-        requestPanel.add(physicianField);//same lng sa iban ah
+        requestPanel.add(physicianField);//this adds the requesting physician label and text field to the request details panel, allowing users to input the name of the physician who requested the lab tests.
 
         requestPanel.add(new JLabel("Date & Time Collected:"));
-        requestPanel.add(new JLabel(dateCollection + " " + timeCollection));//same lng sa iban ah, pero dateCollection kag timeCollection na ang gin display nga may current date and time nga na assign sa constructor sang GUI class
+        requestPanel.add(new JLabel(dateCollection + " " + timeCollection));// this add the date and time collected label to the request details panel, displaying the current date and time when the patient information is being entered, providing a timestamp for when the lab test request was made.
 
         // ------------------- Lab Tests Panel -------------------
-        JPanel labPanel = new JPanel(new BorderLayout());//ga himo sang lab panel nga may border layout para ma organize ang table kag result area
+        JPanel labPanel = new JPanel(new BorderLayout());// it creates lab panel
         labPanel.setBorder(BorderFactory.createTitledBorder("Laboratory Tests (Enter Value Per Test)"));
 
         // Table model with columns "Test Name" and "Conventional Value"
@@ -131,7 +131,7 @@ public class PagunTudenClinicAppGUI extends JFrame {
                 "Total Calcium", "Ionized Calcium"
         };
 
-        // naga add sang mga tests sa table model as rows, with the test name in the first column and an empty string in the second column for user input
+        // it adds tests to the table model as rows, with the test name in the first column and an empty string in the second column for user input
         for (String test : tests) {
             tableModel.addRow(new Object[]{test, ""});
         }
@@ -140,7 +140,7 @@ public class PagunTudenClinicAppGUI extends JFrame {
         testTable = new JTable(tableModel);
         testTable.getColumnModel().getColumn(0).setPreferredWidth(250);//measurement of the preferred width of the first column (Test Name) in pixels, setting it to 250 pixels. This ensures that the test names have enough space to be fully visible without being cut off, improving readability and the overall appearance of the table in the GUI.
         testTable.getColumnModel().getColumn(1).setPreferredWidth(500);//
-        testTable.setRowHeight(30); // amo ni sa ang height sang row
+        testTable.setRowHeight(30); // this is the height of row
 
         JScrollPane tableScroll = new JScrollPane(testTable);
         labPanel.add(tableScroll, BorderLayout.CENTER);
